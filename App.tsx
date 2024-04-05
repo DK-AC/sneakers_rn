@@ -16,6 +16,7 @@ export const App = () => {
           initialRouteName={'Main'}
           screenOptions={{
             headerStyle: {backgroundColor: '#e5e5e5'},
+            headerTransparent: false,
             headerSearchBarOptions: {
               textColor: '#8a8a9d',
               barTintColor: 'white',

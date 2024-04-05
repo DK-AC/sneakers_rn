@@ -1,4 +1,4 @@
-import {Image, View} from 'react-native';
+import {View} from 'react-native';
 import {styles} from './main.styles.ts';
 import React from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';

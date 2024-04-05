@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginTop: 112,
     paddingHorizontal: 20,
+    marginTop: 20,
   },
 });
