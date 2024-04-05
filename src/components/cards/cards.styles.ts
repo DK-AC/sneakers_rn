@@ -36,6 +36,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     marginTop: -70,
     maxWidth: 280,
+    objectFit: 'contain',
   },
   title: {
     fontSize: 15,

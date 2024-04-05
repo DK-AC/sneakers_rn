@@ -1,20 +1,21 @@
-import {Image, ImageSourcePropType, Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import {styles} from './cards.styles.ts';
-import Nike from '../../../assets/icons/Nike-logo.svg';
+import NikeLogo from '../../../assets/icons/Nike-logo.svg';
+import AdidasLogo from '../../../assets/icons/Adidas.svg';
+import PumaLogo from '../../../assets/icons/Puma.svg';
+import AsicsLogo from '../../../assets/icons/Asics.svg';
 import FavoriteLogo from '../../../assets/icons/Favorite.svg';
 import StarEmptyLogo from '../../../assets/icons/star-empty.svg';
 
 import React from 'react';
+import {SneakersType} from '../../types';
 
 type Props = {
-  img: ImageSourcePropType;
-  title: string;
-  rating: number;
-  price: number;
+  sneaker: SneakersType;
 };
 
-export const Cards = (props: Props) => {
-  const {img, title, rating, price} = props;
+export const Cards = ({sneaker}: Props) => {
+  const {img, price, firma, title, rating} = sneaker;
 
   const starIcons = Array.from({length: 5}, (_, index) => ({
     width: 17,
@@ -22,10 +23,25 @@ export const Cards = (props: Props) => {
     fill: rating >= index + 1 ? 'gold' : 'lightgrey',
   }));
 
+  const getLogo = (firma: string) => {
+    switch (firma) {
+      case 'nike':
+        return <NikeLogo width={64} height={48} fill={''} />;
+      case 'adidas':
+        return <AdidasLogo width={64} height={48} fill={''} />;
+      case 'puma':
+        return <PumaLogo width={64} height={48} fill={''} />;
+      case 'asics':
+        return <AsicsLogo width={64} height={48} fill={''} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
-        <Nike width={64} height={48} fill={''} />
+        {getLogo(firma)}
         <FavoriteLogo width={24} height={24} fill={'none'} />
       </View>
       <Image style={styles.img} source={img} />

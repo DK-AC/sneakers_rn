@@ -33,16 +33,8 @@ export const MainScreen = ({navigation}: Props) => {
         </TouchableOpacity>
       </View>
       <ScrollView>
-        {sneakersData.map(({id, title, rating, img, price}) => {
-          return (
-            <Cards
-              img={img}
-              title={title}
-              rating={rating}
-              key={id}
-              price={price}
-            />
-          );
+        {sneakersData.map(item => {
+          return <Cards sneaker={item} key={item.id} />;
         })}
       </ScrollView>
     </View>
