@@ -50,8 +50,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 21,
-    fontWeight: 'bold',
-    fontFamily: 'Open Sans',
+    fontFamily: 'OpenSans-Bold',
     color: '#313B5D',
     backgroundColor: 'red',
   },

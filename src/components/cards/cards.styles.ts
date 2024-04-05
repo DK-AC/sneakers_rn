@@ -39,18 +39,18 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     fontWeight: 'bold',
-    fontFamily: 'Open Sans',
+    fontFamily: 'OpenSans-Bold',
     color: '#8A8A9D',
   },
   priceAmount: {
+    fontFamily: 'OpenSans-Bold',
     color: '#3A63E0',
     fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: 'Open Sans',
   },
   priceValue: {
     color: '#313b5d',
     fontSize: 23,
+    fontFamily: 'OpenSans-Bold',
   },
   stars: {
     display: 'flex',

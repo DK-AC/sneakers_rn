@@ -1,28 +1,45 @@
-import {Image, Text, View} from 'react-native';
+import {Image, ImageSourcePropType, Text, View} from 'react-native';
 import {styles} from './cards.styles.ts';
-import Nike from '../../../public/assets/icons/Nike-logo.svg';
-import FavoriteLogo from '../../../public/assets/icons/Favorite.svg';
-import StarEmptyLogo from '../../../public/assets/icons/star-empty.svg';
-import nikeMain from '../../../public/assets/images/nikeMain.png';
+import Nike from '../../../assets/icons/Nike-logo.svg';
+import FavoriteLogo from '../../../assets/icons/Favorite.svg';
+import StarEmptyLogo from '../../../assets/icons/star-empty.svg';
+
 import React from 'react';
 
-export const Cards = () => {
+type Props = {
+  img: ImageSourcePropType;
+  title: string;
+  rating: number;
+};
+
+export const Cards = (props: Props) => {
+  const {img, title, rating} = props;
+
+  const starIcons = Array.from({length: 5}, (_, index) => ({
+    width: 17,
+    height: 15,
+    fill: rating >= index + 1 ? 'gold' : 'lightgrey',
+  }));
+
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
         <Nike width={64} height={48} fill={''} />
         <FavoriteLogo width={24} height={24} fill={'none'} />
       </View>
-      <Image style={styles.img} source={nikeMain} />
+      <Image style={styles.img} source={img} />
       <View style={styles.inner}>
         <View style={styles.box}>
-          <Text style={styles.title}>Nike Air Max Plus |||</Text>
+          <Text style={styles.title}>{title}</Text>
           <View style={styles.stars}>
-            <StarEmptyLogo width={17} height={15} fill={'gold'} />
-            <StarEmptyLogo width={17} height={15} fill={'gold'} />
-            <StarEmptyLogo width={17} height={15} fill={'gold'} />
-            <StarEmptyLogo width={17} height={15} fill={'gold'} />
-            <StarEmptyLogo width={17} height={15} fill={'lightgrey'} />
+            {starIcons.map((star, index) => (
+              <StarEmptyLogo
+                key={index}
+                width={star.width}
+                height={star.height}
+                fill={star.fill}
+              />
+            ))}
           </View>
         </View>
         <Text style={styles.priceAmount}>

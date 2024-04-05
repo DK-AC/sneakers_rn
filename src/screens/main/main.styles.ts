@@ -38,8 +38,7 @@ export const styles = StyleSheet.create({
   },
   sidebarText: {
     fontSize: 17,
-    fontWeight: 'bold',
-    fontFamily: 'Open Sans',
+    fontFamily: 'OpenSans-Bold',
     color: '#313B5D',
     textTransform: 'uppercase',
   },
