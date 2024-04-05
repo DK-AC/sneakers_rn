@@ -19,5 +19,11 @@ export const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 6,
   },
-  iconBox: {},
+  iconBox: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginTop: 112,
+    paddingHorizontal: 20,
+  },
 });
