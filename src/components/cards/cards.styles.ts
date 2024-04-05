@@ -35,6 +35,7 @@ export const styles = StyleSheet.create({
   img: {
     flex: 1,
     marginTop: -70,
+    maxWidth: 280,
   },
   title: {
     fontSize: 15,

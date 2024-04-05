@@ -10,10 +10,11 @@ type Props = {
   img: ImageSourcePropType;
   title: string;
   rating: number;
+  price: number;
 };
 
 export const Cards = (props: Props) => {
-  const {img, title, rating} = props;
+  const {img, title, rating, price} = props;
 
   const starIcons = Array.from({length: 5}, (_, index) => ({
     width: 17,
@@ -43,7 +44,7 @@ export const Cards = (props: Props) => {
           </View>
         </View>
         <Text style={styles.priceAmount}>
-          $<Text style={styles.priceValue}>189</Text>
+          $<Text style={styles.priceValue}>{price}</Text>
         </Text>
       </View>
     </View>

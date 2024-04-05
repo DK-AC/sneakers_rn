@@ -7,8 +7,8 @@ import Nike from '../../../assets/icons/Nike.svg';
 import Puma from '../../../assets/icons/Puma.svg';
 import Asics from '../../../assets/icons/Asics.svg';
 import {Cards} from '../../components/cards';
-import nikeMain from '../../../assets/images/nikeMain.png';
-import nikeWhite from '../../../assets/images/nikeAirMaxWhite.png';
+
+import {sneakersData} from '../../data';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Main'>;
 
@@ -33,15 +33,17 @@ export const MainScreen = ({navigation}: Props) => {
         </TouchableOpacity>
       </View>
       <ScrollView>
-        <Cards img={nikeMain} title={'Nike Air Max Plus |||'} rating={4} />
-        <Cards img={nikeMain} title={'Nike Air Max Plus |||'} rating={4} />
-        <Cards img={nikeWhite} title={'Nike Air Max'} rating={5} />
-        <Cards img={nikeWhite} title={'Nike Air Max'} rating={5} />
-        <Cards img={nikeMain} title={'Nike Air Max Plus |||'} rating={4} />
-        <Cards img={nikeMain} title={'Nike Air Max Plus |||'} rating={4} />
-        <Cards img={nikeMain} title={'Nike Air Max Plus |||'} rating={4} />
-        <Cards img={nikeWhite} title={'Nike Air Max'} rating={5} />
-        <Cards img={nikeWhite} title={'Nike Air Max'} rating={5} />
+        {sneakersData.map(({id, title, rating, img, price}) => {
+          return (
+            <Cards
+              img={img}
+              title={title}
+              rating={rating}
+              key={id}
+              price={price}
+            />
+          );
+        })}
       </ScrollView>
     </View>
   );
