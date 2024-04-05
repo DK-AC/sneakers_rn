@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {styles} from './main.styles.ts';
 import React from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -6,6 +6,7 @@ import Adidas from '../../../public/assets/icons/Adidas.svg';
 import Nike from '../../../public/assets/icons/Nike.svg';
 import Puma from '../../../public/assets/icons/Puma.svg';
 import Asics from '../../../public/assets/icons/Asics.svg';
+import {Cards} from '../../components/cards';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Main'>;
 
@@ -18,6 +19,12 @@ export const MainScreen = ({navigation}: Props) => {
         <Puma width={58} height={30} fill={'blue'} />
         <Asics width={58} height={30} fill={'blue'} />
       </View>
+      <ScrollView>
+        <Cards />
+        <Cards />
+        <Cards />
+        <Cards />
+      </ScrollView>
     </View>
   );
 };

@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {},
   input: {
     width: '100%',
     backgroundColor: 'white',
@@ -25,5 +24,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 20,
     marginTop: 20,
+    marginBottom: 20,
   },
 });
