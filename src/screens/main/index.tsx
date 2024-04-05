@@ -1,6 +1,6 @@
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './main.styles.ts';
-import React from 'react';
+import React, {useState} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import Adidas from '../../../assets/icons/Adidas.svg';
 import Nike from '../../../assets/icons/Nike.svg';
@@ -13,13 +13,28 @@ import {sneakersData} from '../../data';
 type Props = NativeStackScreenProps<RootStackParamList, 'Main'>;
 
 export const MainScreen = ({navigation}: Props) => {
+  const [filteredSneakers, setFilteredSneakers] = useState(sneakersData);
+
+  const filterSneakers = (firma: string) => {
+    const filtered = sneakersData.filter(sneaker => sneaker.firma === firma);
+    setFilteredSneakers(filtered);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.iconBox}>
-        <Nike width={58} height={30} fill={''} />
-        <Adidas width={58} height={30} fill={''} />
-        <Puma width={58} height={30} fill={''} />
-        <Asics width={58} height={30} fill={''} />
+        <TouchableOpacity onPress={() => filterSneakers('nike')}>
+          <Nike width={58} height={30} fill={''} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => filterSneakers('adidas')}>
+          <Adidas width={58} height={30} fill={''} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => filterSneakers('puma')}>
+          <Puma width={58} height={30} fill={''} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => filterSneakers('asics')}>
+          <Asics width={58} height={30} fill={''} />
+        </TouchableOpacity>
       </View>
       <View style={styles.sideBar}>
         <TouchableOpacity>
@@ -33,7 +48,7 @@ export const MainScreen = ({navigation}: Props) => {
         </TouchableOpacity>
       </View>
       <ScrollView>
-        {sneakersData.map(item => {
+        {filteredSneakers.map(item => {
           return <Cards sneaker={item} key={item.id} />;
         })}
       </ScrollView>
