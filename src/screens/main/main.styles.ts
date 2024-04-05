@@ -26,4 +26,21 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
   },
+  sideBar: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 50,
+    transform: [{rotate: '-90deg'}],
+    position: 'absolute',
+    bottom: 350,
+    left: -150,
+    zIndex: 1,
+  },
+  sidebarText: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    fontFamily: 'Open Sans',
+    color: '#313B5D',
+    textTransform: 'uppercase',
+  },
 });

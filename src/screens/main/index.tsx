@@ -1,4 +1,4 @@
-import {ScrollView, View} from 'react-native';
+import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './main.styles.ts';
 import React from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -18,6 +18,17 @@ export const MainScreen = ({navigation}: Props) => {
         <Adidas width={58} height={30} fill={'blue'} />
         <Puma width={58} height={30} fill={'blue'} />
         <Asics width={58} height={30} fill={'blue'} />
+      </View>
+      <View style={styles.sideBar}>
+        <TouchableOpacity>
+          <Text style={styles.sidebarText}>Popular</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.sidebarText}>New arrivals</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.sidebarText}>Sale</Text>
+        </TouchableOpacity>
       </View>
       <ScrollView>
         <Cards />
