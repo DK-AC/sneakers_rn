@@ -10,6 +10,7 @@ import {StarsRating} from '../../components/stars-rating';
 import {Price} from '../../components/price';
 import {IconContainer} from '../../components/icon-container';
 import {Title} from '../../components/title';
+import {Info} from '../../components/info';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Card'>;
 
@@ -46,6 +47,7 @@ export const CardScreen = (props: Props) => {
           <Price price={price} />
         </View>
         <ShoeSizes />
+        <Info />
       </View>
     </View>
   );

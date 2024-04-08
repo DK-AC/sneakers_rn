@@ -7,5 +7,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
+    zIndex: 2,
   },
 });

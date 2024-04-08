@@ -9,7 +9,6 @@ export const styles = StyleSheet.create({
     height: 342,
     borderRadius: 20,
     display: 'flex',
-    alignItems: 'center',
     marginBottom: 20,
     paddingVertical: 20,
     paddingHorizontal: 20,
