@@ -14,13 +14,6 @@ export const styles = StyleSheet.create({
     borderBottomEndRadius: 0,
     borderTopEndRadius: 0,
   },
-  iconContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: '100%',
-  },
   inner: {
     width: '100%',
     display: 'flex',
@@ -37,26 +30,5 @@ export const styles = StyleSheet.create({
     marginTop: -70,
     maxWidth: 280,
     objectFit: 'contain',
-  },
-  title: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    fontFamily: 'OpenSans-Bold',
-    color: '#8A8A9D',
-  },
-  priceAmount: {
-    fontFamily: 'OpenSans-Bold',
-    color: '#3A63E0',
-    fontSize: 18,
-  },
-  priceValue: {
-    color: '#313b5d',
-    fontSize: 23,
-    fontFamily: 'OpenSans-Bold',
-  },
-  stars: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 5,
   },
 });
