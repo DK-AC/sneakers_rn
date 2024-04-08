@@ -58,9 +58,4 @@ export const styles = StyleSheet.create({
     fontSize: 23,
     fontFamily: 'OpenSans-Bold',
   },
-  stars: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 5,
-  },
 });

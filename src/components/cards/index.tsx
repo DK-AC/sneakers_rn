@@ -5,10 +5,10 @@ import AdidasLogo from '../../../assets/icons/Adidas.svg';
 import PumaLogo from '../../../assets/icons/Puma.svg';
 import AsicsLogo from '../../../assets/icons/Asics.svg';
 import FavoriteLogo from '../../../assets/icons/Favorite.svg';
-import StarEmptyLogo from '../../../assets/icons/star-empty.svg';
 
 import React from 'react';
 import {SneakersType} from '../../types';
+import {StarsRating} from '../stars-rating';
 
 type Props = {
   sneaker: SneakersType;
@@ -17,12 +17,6 @@ type Props = {
 
 export const Cards = ({sneaker, navigation}: Props) => {
   const {img, price, firma, title, rating} = sneaker;
-
-  const starIcons = Array.from({length: 5}, (_, index) => ({
-    width: 17,
-    height: 15,
-    fill: rating >= index + 1 ? 'gold' : 'lightgrey',
-  }));
 
   const getLogo = (firma: string) => {
     switch (firma) {
@@ -53,16 +47,7 @@ export const Cards = ({sneaker, navigation}: Props) => {
       <View style={styles.inner}>
         <View style={styles.box}>
           <Text style={styles.title}>{title}</Text>
-          <View style={styles.stars}>
-            {starIcons.map((star, index) => (
-              <StarEmptyLogo
-                key={index}
-                width={star.width}
-                height={star.height}
-                fill={star.fill}
-              />
-            ))}
-          </View>
+          <StarsRating rating={rating} />
         </View>
         <Text style={styles.priceAmount}>
           $<Text style={styles.priceValue}>{price}</Text>
