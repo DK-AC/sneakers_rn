@@ -27,7 +27,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 18,
   },
-
+  selectedCircle: {
+    borderColor: '#007bff',
+  },
   box: {
     height: 50,
   },
