@@ -1,0 +1,5 @@
+export enum InfoSneaker {
+  DESCRIPTION = 'DESCRIPTION',
+  DELIVERY = 'DELIVERY',
+  REVIEWS = 'REVIEWS',
+}

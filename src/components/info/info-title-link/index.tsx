@@ -1,18 +1,24 @@
 import {Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import {styles} from './info-title-link.styles.ts';
+import {InfoSneaker} from '../../../constants';
 
-export const InfoTitleLink = () => {
+type Props = {
+  activeTab: InfoSneaker;
+  onTabChange: (value: InfoSneaker) => void;
+};
+
+export const InfoTitleLink = ({activeTab, onTabChange}: Props) => {
+  const {REVIEWS, DESCRIPTION, DELIVERY} = InfoSneaker;
+
   const buttonData = [
-    {title: 'Description', value: 'Description'},
-    {title: 'Delivery', value: 'Delivery'},
-    {title: 'Reviews', value: 'Reviews'},
+    {title: DESCRIPTION, value: DESCRIPTION},
+    {title: DELIVERY, value: DELIVERY},
+    {title: REVIEWS, value: REVIEWS},
   ];
 
-  const [activeButton, setActiveButton] = useState('Description');
-
-  const handleButtonPress = (buttonValue: string) => {
-    setActiveButton(buttonValue);
+  const handleButtonPress = (buttonValue: InfoSneaker) => {
+    onTabChange(buttonValue);
   };
 
   return (
@@ -21,11 +27,11 @@ export const InfoTitleLink = () => {
         <TouchableOpacity
           key={button.value}
           onPress={() => handleButtonPress(button.value)}
-          disabled={activeButton === button.value}>
+          disabled={activeTab === button.value}>
           <Text
             style={[
               styles.text,
-              activeButton === button.value
+              activeTab === button.value
                 ? styles.activeButton
                 : styles.inactiveButton,
             ]}>
