@@ -2,16 +2,14 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
     height: 342,
-    borderRadius: 5,
-    marginLeft: 54,
+    borderRadius: 20,
     display: 'flex',
     alignItems: 'center',
     marginBottom: 20,
     paddingVertical: 20,
     paddingHorizontal: 20,
-    borderBottomEndRadius: 0,
+    borderTopStartRadius: 0,
     borderTopEndRadius: 0,
   },
   iconContainer: {
@@ -20,6 +18,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
+    zIndex: 2,
   },
   inner: {
     width: '100%',
