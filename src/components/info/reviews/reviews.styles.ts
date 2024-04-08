@@ -1,18 +1,29 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {},
-  text: {
-    color: '#8A8A9D',
-    fontSize: 14,
-    fontFamily: 'OpenSans-Regular',
-    fontWeight: '400',
+  reviewContainer: {
+    backgroundColor: '#F0EFF2',
+    padding: 10,
     marginBottom: 10,
-    lineHeight: 22,
+    borderRadius: 8,
+    gap: 2,
+  },
+  author: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'OpenSans-Bold',
+    color: '#313B5D',
+    marginBottom: 5,
+  },
+  comment: {
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '400',
+    fontFamily: 'OpenSans-Regular',
+    marginTop: 3,
   },
   button: {
-    color: '#3A63E0',
-    fontFamily: 'OpenSans-SemiBold',
-    fontWeight: '600',
+    color: '#007bff',
+    fontSize: 14,
   },
 });

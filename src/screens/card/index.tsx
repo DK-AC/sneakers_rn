@@ -1,4 +1,4 @@
-import {Image, Text, View} from 'react-native';
+import {Image, View} from 'react-native';
 import {styles} from './card.styles.ts';
 import React from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -19,7 +19,7 @@ export const CardScreen = (props: Props) => {
     route: {params},
   } = props;
 
-  const {firma, img, description, price, title, rating} = params.sneaker;
+  const {firma, img, reviews, delivery, description, price, title, rating} = params.sneaker;
 
   return (
     <View style={styles.container}>
@@ -31,9 +31,7 @@ export const CardScreen = (props: Props) => {
           sliderBoxHeight={320}
           resizeMode={'contain'}
           images={[img, img, img, img, img, img]}
-          onCurrentImagePressed={(index: number) =>
-            console.warn(`image ${index + 1} pressed`)
-          }
+          onCurrentImagePressed={(index: number) => console.warn(`image ${index + 1} pressed`)}
           dotColor="#3A63E0"
           inactiveDotColor="#8A8A9D"
           imageLoadingColor="#3A63E0"
@@ -47,7 +45,7 @@ export const CardScreen = (props: Props) => {
           <Price price={price} />
         </View>
         <ShoeSizes />
-        <Info description={description} />
+        <Info description={description} reviews={reviews} delivery={delivery} />
       </View>
     </View>
   );

@@ -1,32 +1,23 @@
-import {Text, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import {Text, View} from 'react-native';
+import React from 'react';
 import {styles} from './reviews.styles.ts';
+import {ReviewsType} from '../../../types';
+import {StarsRating} from '../../stars-rating';
 
 type Props = {
-  description: string;
+  reviews: ReviewsType[];
 };
 
-export const Reviews = ({description}: Props) => {
-  const [expanded, setExpanded] = useState(false);
-
-  const handleExpand = () => {
-    setExpanded(!expanded);
-  };
-
+export const Reviews = ({reviews}: Props) => {
   return (
-    <>
-      <Text style={styles.text}>
-        {expanded
-          ? description
-          : `${description.substring(0, 100)}${
-              description.length > 100 ? '...' : ''
-            }`}
-      </Text>
-      {description.length > 100 && (
-        <TouchableOpacity onPress={handleExpand}>
-          <Text style={styles.button}>{expanded ? 'less' : 'more'}</Text>
-        </TouchableOpacity>
-      )}
-    </>
+    <View>
+      {reviews.map(({id, rating, author, comment}) => (
+        <View key={id} style={styles.reviewContainer}>
+          <Text style={styles.author}>{author}</Text>
+          <StarsRating rating={rating} />
+          <Text style={styles.comment}>{comment}</Text>
+        </View>
+      ))}
+    </View>
   );
 };
