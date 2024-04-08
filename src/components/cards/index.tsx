@@ -1,4 +1,4 @@
-import {Image, Text, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './cards.styles.ts';
 import NikeLogo from '../../../assets/icons/Nike-logo.svg';
 import AdidasLogo from '../../../assets/icons/Adidas.svg';
@@ -12,9 +12,10 @@ import {SneakersType} from '../../types';
 
 type Props = {
   sneaker: SneakersType;
+  navigation: any;
 };
 
-export const Cards = ({sneaker}: Props) => {
+export const Cards = ({sneaker, navigation}: Props) => {
   const {img, price, firma, title, rating} = sneaker;
 
   const starIcons = Array.from({length: 5}, (_, index) => ({
@@ -38,8 +39,12 @@ export const Cards = ({sneaker}: Props) => {
     }
   };
 
+  const navigateToCardHandle = () => {
+    navigation.navigate('Card', {sneaker});
+  };
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={navigateToCardHandle}>
       <View style={styles.iconContainer}>
         {getLogo(firma)}
         <FavoriteLogo width={24} height={24} fill={'none'} />
@@ -63,6 +68,6 @@ export const Cards = ({sneaker}: Props) => {
           $<Text style={styles.priceValue}>{price}</Text>
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };

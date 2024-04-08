@@ -1,4 +1,5 @@
-type RootStackParamList = {
+import {SneakersType} from './index.ts';
+export type RootStackParamList = {
   Main: undefined;
-  Card: undefined;
+  Card: {sneaker: SneakersType};
 };

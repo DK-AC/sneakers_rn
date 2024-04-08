@@ -9,6 +9,7 @@ import Asics from '../../../assets/icons/Asics.svg';
 import {Cards} from '../../components/cards';
 
 import {sneakersData} from '../../data';
+import {RootStackParamList} from '../../types/navigation.types.ts';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Main'>;
 
@@ -49,7 +50,7 @@ export const MainScreen = ({navigation}: Props) => {
       </View>
       <ScrollView>
         {filteredSneakers.map(item => {
-          return <Cards sneaker={item} key={item.id} />;
+          return <Cards sneaker={item} key={item.id} navigation={navigation} />;
         })}
       </ScrollView>
     </View>
