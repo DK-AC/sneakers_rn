@@ -8,4 +8,5 @@ export type SneakersType = {
   price: number;
   firma: string;
   icon: string;
+  description: string;
 };

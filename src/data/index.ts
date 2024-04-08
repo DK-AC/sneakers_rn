@@ -18,15 +18,8 @@ export const sneakersData: SneakersType[] = [
     price: 189,
     rating: 5,
     firma: 'nike',
-  },
-  {
-    id: '5',
-    icon: '',
-    img: adidas,
-    title: 'Adidas Ultra',
-    price: 133,
-    rating: 0,
-    firma: 'adidas',
+    description:
+      'When performance is what you’re looking for, look no further than the all-new Nike Tuned 3. These sneakers are designed to provide maximum comfort and support during your workouts or everyday activities. With their stylish design and innovative features, the Nike Air Max 3 Plus is a must-have for any sneaker enthusiast.',
   },
   {
     id: '2',
@@ -36,6 +29,8 @@ export const sneakersData: SneakersType[] = [
     price: 199,
     rating: 4,
     firma: 'nike',
+    description:
+      'Step up your running game with the Nike Ultra Boost. These sneakers are engineered to deliver exceptional cushioning and energy return, allowing you to run faster and longer. The lightweight and breathable design ensures maximum comfort, while the stylish look makes a statement wherever you go.',
   },
   {
     id: '3',
@@ -45,6 +40,8 @@ export const sneakersData: SneakersType[] = [
     price: 129,
     rating: 4,
     firma: 'nike',
+    description:
+      'Get ready to conquer the streets with the Nike Future Rider. These sneakers combine retro style with modern technology for a perfect blend of comfort and performance. The durable construction and responsive cushioning make them ideal for everyday wear, while the eye-catching design adds a touch of flair to any outfit.',
   },
   {
     id: '4',
@@ -54,6 +51,7 @@ export const sneakersData: SneakersType[] = [
     price: 204,
     rating: 3,
     firma: 'adidas',
+    description: 'dddd',
   },
   {
     id: '6',
@@ -63,6 +61,7 @@ export const sneakersData: SneakersType[] = [
     price: 82,
     rating: 3,
     firma: 'puma',
+    description: '232324',
   },
   {
     id: '7',
@@ -72,6 +71,7 @@ export const sneakersData: SneakersType[] = [
     price: 102,
     rating: 5,
     firma: 'asics',
+    description: '42323',
   },
   {
     id: '8',
@@ -81,5 +81,6 @@ export const sneakersData: SneakersType[] = [
     price: 93,
     rating: 2,
     firma: 'asics',
+    description: '42232323232',
   },
 ];

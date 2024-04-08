@@ -2,7 +2,11 @@ import {Text, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import {styles} from './description.styles.ts';
 
-export const Description = () => {
+type Props = {
+  description: string;
+};
+
+export const Description = ({description}: Props) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleExpand = () => {
@@ -12,19 +16,15 @@ export const Description = () => {
   return (
     <>
       <Text style={styles.text}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-        consectetur, delectus.
-        {!expanded
-          ? '...'
-          : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio eos est maiores neque omnis quisquam sequi tempora? Eaque exercitationem magnam provident sequi sint suscipit voluptate! Aliquam aliquid commodi consequuntur culpa!'}
+        {expanded
+          ? description
+          : `${description.substring(0, 100)}${
+              description.length > 100 ? '...' : ''
+            }`}
       </Text>
-      {expanded ? (
+      {description.length > 100 && (
         <TouchableOpacity onPress={handleExpand}>
-          <Text style={styles.button}>less</Text>
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity onPress={handleExpand}>
-          <Text style={styles.button}>more</Text>
+          <Text style={styles.button}>{expanded ? 'less' : 'more'}</Text>
         </TouchableOpacity>
       )}
     </>

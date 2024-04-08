@@ -19,7 +19,7 @@ export const CardScreen = (props: Props) => {
     route: {params},
   } = props;
 
-  const {firma, img, price, title, rating} = params.sneaker;
+  const {firma, img, description, price, title, rating} = params.sneaker;
 
   return (
     <View style={styles.container}>
@@ -47,7 +47,7 @@ export const CardScreen = (props: Props) => {
           <Price price={price} />
         </View>
         <ShoeSizes />
-        <Info />
+        <Info description={description} />
       </View>
     </View>
   );
