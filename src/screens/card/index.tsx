@@ -10,6 +10,7 @@ import PumaLogo from '../../../assets/icons/Puma.svg';
 import AsicsLogo from '../../../assets/icons/Asics.svg';
 import {RootStackParamList} from '../../types/navigation.types.ts';
 import {SliderBox} from 'react-native-image-slider-box';
+import {ShoeSizes} from '../../components/shoe-sizes';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Card'>;
 
@@ -41,43 +42,47 @@ export const CardScreen = (props: Props) => {
         return null;
     }
   };
+
   return (
     <View style={styles.container}>
-      <View style={styles.iconContainer}>
-        {getLogo(firma)}
-        <FavoriteLogo width={24} height={24} fill={'none'} />
-      </View>
-      <Image style={styles.img} source={img} />
-      <SliderBox
-        dotStyle={{width: 8, height: 8}}
-        sliderBoxHeight={320}
-        resizeMode={'contain'}
-        images={[img, img, img, img, img, img]}
-        onCurrentImagePressed={(index: number) =>
-          console.warn(`image ${index + 1} pressed`)
-        }
-        dotColor="#3A63E0"
-        inactiveDotColor="#8A8A9D"
-        imageLoadingColor="#3A63E0"
-      />
-
-      <View style={styles.inner}>
-        <View style={styles.box}>
-          <Text style={styles.title}>{title}</Text>
-          <View style={styles.stars}>
-            {starIcons.map((star, index) => (
-              <StarEmptyLogo
-                key={index}
-                width={star.width}
-                height={star.height}
-                fill={star.fill}
-              />
-            ))}
-          </View>
+      <View style={styles.cardBox}>
+        <View style={styles.iconContainer}>
+          {getLogo(firma)}
+          <FavoriteLogo width={24} height={24} fill={'none'} />
         </View>
-        <Text style={styles.priceAmount}>
-          $<Text style={styles.priceValue}>{price}</Text>
-        </Text>
+        <Image style={styles.img} source={img} />
+        <SliderBox
+          dotStyle={{width: 8, height: 8}}
+          sliderBoxHeight={320}
+          resizeMode={'contain'}
+          images={[img, img, img, img, img, img]}
+          onCurrentImagePressed={(index: number) =>
+            console.warn(`image ${index + 1} pressed`)
+          }
+          dotColor="#3A63E0"
+          inactiveDotColor="#8A8A9D"
+          imageLoadingColor="#3A63E0"
+        />
+
+        <View style={styles.inner}>
+          <View style={styles.box}>
+            <Text style={styles.title}>{title}</Text>
+            <View style={styles.stars}>
+              {starIcons.map((star, index) => (
+                <StarEmptyLogo
+                  key={index}
+                  width={star.width}
+                  height={star.height}
+                  fill={star.fill}
+                />
+              ))}
+            </View>
+          </View>
+          <Text style={styles.priceAmount}>
+            $<Text style={styles.priceValue}>{price}</Text>
+          </Text>
+        </View>
+        <ShoeSizes />
       </View>
     </View>
   );

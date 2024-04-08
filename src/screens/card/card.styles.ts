@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'white',
+    flex: 1,
+  },
+  cardBox: {
     height: 342,
     borderRadius: 20,
     display: 'flex',
@@ -26,6 +30,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginBottom: 20,
   },
   box: {
     display: 'flex',

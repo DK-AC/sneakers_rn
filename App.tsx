@@ -15,28 +15,36 @@ export const App = () => {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName={'Main'}
-          screenOptions={{
-            headerStyle: {backgroundColor: '#e5e5e5'},
-            headerTransparent: false,
-            headerSearchBarOptions: {
-              textColor: '#8a8a9d',
-              barTintColor: 'white',
-              hideNavigationBar: false,
-              placeholder: 'Search...',
+          screenOptions={({route}) => ({
+            headerStyle: {
+              backgroundColor: route.name === 'Main' ? '#e5e5e5' : 'white',
             },
-          }}>
+            headerTransparent: false,
+            headerSearchBarOptions:
+              route.name === 'Main'
+                ? {
+                    textColor: '#8a8a9d',
+                    barTintColor: 'white',
+                    hideNavigationBar: false,
+                    placeholder: 'Search...',
+                  }
+                : undefined,
+          })}>
           <Stack.Screen
             name="Main"
             component={MainScreen}
             options={{
               title: 'Explore',
-              headerTitleStyle: styles.headerTitle,
+              headerTitleStyle: styles.headerTitleMain,
             }}
           />
           <Stack.Screen
             name="Card"
             component={CardScreen}
-            options={{title: 'Running', headerTitleStyle: styles.headerTitle}}
+            options={{
+              title: 'Running',
+              headerTitleStyle: styles.headerTitleCard,
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
@@ -49,7 +57,13 @@ const styles = StyleSheet.create({
   safeArea: {
     backgroundColor: '#e5e5e5',
   },
-  headerTitle: {
+  headerTitleMain: {
+    fontSize: 21,
+    fontFamily: 'OpenSans-Bold',
+    color: '#313B5D',
+    backgroundColor: 'red',
+  },
+  headerTitleCard: {
     fontSize: 21,
     fontFamily: 'OpenSans-Bold',
     color: '#313B5D',
