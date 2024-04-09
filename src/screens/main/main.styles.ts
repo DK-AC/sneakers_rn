@@ -18,14 +18,6 @@ export const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 6,
   },
-  iconBox: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    paddingHorizontal: 20,
-    marginTop: 30,
-    marginBottom: 20,
-  },
   sideBar: {
     display: 'flex',
     flexDirection: 'row',

@@ -11,6 +11,7 @@ import {Cards} from '../../components/cards';
 import {sneakersData} from '../../data';
 import {RootStackParamList} from '../../types/navigation.types.ts';
 import {SearchBar} from '../../components/search-bar';
+import {FilteredIcons} from '../../components/filtered-icons';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Main'>;
 
@@ -40,21 +41,8 @@ export const MainScreen = ({navigation}: Props) => {
         clearSearchText={clearSearchClick}
         onSubmit={searchSneakers}
       />
+      <FilteredIcons filterSneakers={filterSneakers} />
       <View style={styles.container}>
-        <View style={styles.iconBox}>
-          <TouchableOpacity onPress={() => filterSneakers('nike')}>
-            <Nike width={58} height={30} fill={''} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => filterSneakers('adidas')}>
-            <Adidas width={58} height={30} fill={''} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => filterSneakers('puma')}>
-            <Puma width={58} height={30} fill={''} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => filterSneakers('asics')}>
-            <Asics width={58} height={30} fill={''} />
-          </TouchableOpacity>
-        </View>
         <View style={styles.sideBar}>
           <TouchableOpacity>
             <Text style={styles.sidebarText}>Popular</Text>
