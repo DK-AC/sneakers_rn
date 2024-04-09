@@ -17,20 +17,22 @@ type Props = {
 };
 
 export const IconContainer = ({sneaker}: Props) => {
+  const {id, firma} = sneaker;
+
   const dispatch = useAppDispatch();
 
-  const selectExistIdCard = useSelector(itemExistInCart(sneaker?.id));
+  const selectExistIdCard = useSelector(itemExistInCart(id));
 
   const getLogo = (firma: string) => {
     switch (firma) {
       case 'nike':
-        return <NikeLogo width={64} height={48} fill={''} />;
+        return <NikeLogo width={58} height={50} />;
       case 'adidas':
-        return <AdidasLogo width={64} height={48} fill={''} />;
+        return <AdidasLogo width={58} height={50} />;
       case 'puma':
-        return <PumaLogo width={64} height={48} fill={''} />;
+        return <PumaLogo width={58} height={50} />;
       case 'asics':
-        return <AsicsLogo width={64} height={48} fill={''} />;
+        return <AsicsLogo width={58} height={50} />;
       default:
         return null;
     }
@@ -41,14 +43,14 @@ export const IconContainer = ({sneaker}: Props) => {
   };
 
   const handleRemoveFavoritePress = () => {
-    dispatch(removeItemFromCart(sneaker.id));
+    dispatch(removeItemFromCart(id));
   };
 
   return (
     <View style={styles.iconContainer}>
-      {getLogo(sneaker?.firma!)}
+      {getLogo(firma)}
       <TouchableOpacity onPress={!selectExistIdCard ? handleFavoritePress : handleRemoveFavoritePress}>
-        <FavoriteLogo width={24} height={24} fill={selectExistIdCard ? '#8A8A9D' : 'transparent'} />
+        <FavoriteLogo width={24} height={24} fill={selectExistIdCard ? '#000' : 'transparent'} />
       </TouchableOpacity>
     </View>
   );
