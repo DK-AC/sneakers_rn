@@ -1,19 +1,30 @@
-import {Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
 import {styles} from './sidebar-text.styles.ts';
 
-type Props = {};
+type Props = {
+  filterPopular: () => void;
+};
 
-const sidebarItems = [{text: 'Popular'}, {text: 'New arrivals'}, {text: 'Sale'}];
+export const SidebarText = ({filterPopular}: Props) => {
+  const [activeButton, setActiveButton] = useState('');
 
-export const SidebarText = ({}: Props) => {
+  const handleButtonPress = (buttonName: string) => {
+    setActiveButton(buttonName);
+    filterPopular();
+  };
+
   return (
     <View style={styles.sideBar}>
-      {sidebarItems.map((item, index) => (
-        <TouchableOpacity key={index}>
-          <Text style={styles.sidebarText}>{item.text}</Text>
-        </TouchableOpacity>
-      ))}
+      <TouchableOpacity onPress={() => handleButtonPress('Popular')}>
+        <Text style={[styles.sidebarText, activeButton === 'Popular' && styles.activeButton]}>Popular</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => handleButtonPress('New arrivals')}>
+        <Text style={[styles.sidebarText, activeButton === 'New arrivals' && styles.activeButton]}>New arrivals</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => handleButtonPress('Sale')}>
+        <Text style={[styles.sidebarText, activeButton === 'Sale' && styles.activeButton]}>Sale</Text>
+      </TouchableOpacity>
     </View>
   );
 };

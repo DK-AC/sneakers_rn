@@ -17,4 +17,15 @@ export const styles = StyleSheet.create({
     color: '#313B5D',
     textTransform: 'uppercase',
   },
+  line: {
+    position: 'absolute',
+    backgroundColor: 'blue',
+    height: 2,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  activeButton: {
+    textDecorationLine: 'underline',
+  },
 });

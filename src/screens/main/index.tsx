@@ -19,6 +19,12 @@ export const MainScreen = ({navigation}: Props) => {
     const filtered = sneakersData.filter(sneaker => sneaker.firma === firma);
     setFilteredSneakers(filtered);
   };
+
+  const filterPopularSneakers = () => {
+    const sorted = [...filteredSneakers].sort((a, b) => b.rating - a.rating);
+    setFilteredSneakers(sorted);
+  };
+
   const searchSneakers = () => {
     const filtered = sneakersData.filter(sneaker => sneaker.title.toLowerCase().includes(searchText.toLowerCase()));
     setFilteredSneakers(filtered);
@@ -39,7 +45,7 @@ export const MainScreen = ({navigation}: Props) => {
       />
       <FilteredIcons filterSneakers={filterSneakers} clearFilterClick={clearFilterClick} />
       <View style={styles.container}>
-        <SidebarText />
+        <SidebarText filterPopular={filterPopularSneakers} />
         <ScrollView>
           {filteredSneakers.map(item => {
             return <Cards sneaker={item} key={item.id} navigation={navigation} />;
