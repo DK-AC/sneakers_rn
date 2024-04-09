@@ -11,6 +11,7 @@ import {Price} from '../../components/price';
 import {IconContainer} from '../../components/icon-container';
 import {Title} from '../../components/title';
 import {Info} from '../../components/info';
+import {sneakersData} from '../../data';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Card'>;
 
@@ -19,12 +20,12 @@ export const CardScreen = (props: Props) => {
     route: {params},
   } = props;
 
-  const {firma, img, reviews, delivery, description, price, title, rating} = params.sneaker;
+  const {img, reviews, delivery, description, price, title, rating} = params.sneaker;
 
   return (
     <View style={styles.container}>
       <View style={styles.cardBox}>
-        <IconContainer firma={firma} />
+        <IconContainer sneaker={params.sneaker} />
         <Image style={styles.img} source={img} />
         <SliderBox
           dotStyle={{width: 8, height: 8}}

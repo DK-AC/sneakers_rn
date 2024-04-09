@@ -1,4 +1,4 @@
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import {styles} from './cards.styles.ts';
 
 import React from 'react';
@@ -22,7 +22,7 @@ export const Cards = ({sneaker, navigation}: Props) => {
 
   return (
     <TouchableOpacity style={styles.container} onPress={navigateToCardHandle}>
-      <IconContainer firma={firma} />
+      <IconContainer sneaker={sneaker} />
       <Image style={styles.img} source={img} />
       <View style={styles.inner}>
         <View style={styles.box}>
