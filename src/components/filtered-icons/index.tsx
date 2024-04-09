@@ -8,9 +8,10 @@ import {styles} from './filtered-icons.styles.ts';
 
 type Props = {
   filterSneakers: (filter: string) => void;
+  clearFilterClick: () => void;
 };
 
-export const FilteredIcons = ({filterSneakers}: Props) => {
+export const FilteredIcons = ({filterSneakers, clearFilterClick}: Props) => {
   const [activeIcon, setActiveIcon] = useState('');
 
   const icons = [
@@ -21,8 +22,13 @@ export const FilteredIcons = ({filterSneakers}: Props) => {
   ];
 
   const handleIconPress = (name: string) => {
-    setActiveIcon(name === activeIcon ? '' : name);
-    filterSneakers(name);
+    if (name === activeIcon) {
+      setActiveIcon('');
+      clearFilterClick();
+    } else {
+      setActiveIcon(name);
+      filterSneakers(name);
+    }
   };
 
   return (

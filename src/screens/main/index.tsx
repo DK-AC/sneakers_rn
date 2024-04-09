@@ -24,7 +24,7 @@ export const MainScreen = ({navigation}: Props) => {
     setFilteredSneakers(filtered);
   };
 
-  const clearSearchClick = () => {
+  const clearFilterClick = () => {
     setFilteredSneakers(sneakersData);
     onChangeSearchText('');
   };
@@ -34,10 +34,10 @@ export const MainScreen = ({navigation}: Props) => {
       <SearchBar
         text={searchText}
         onChangeText={onChangeSearchText}
-        clearSearchText={clearSearchClick}
+        clearSearchText={clearFilterClick}
         onSubmit={searchSneakers}
       />
-      <FilteredIcons filterSneakers={filterSneakers} />
+      <FilteredIcons filterSneakers={filterSneakers} clearFilterClick={clearFilterClick} />
       <View style={styles.container}>
         <SidebarText />
         <ScrollView>
