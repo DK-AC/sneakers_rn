@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     paddingHorizontal: 20,
-    marginTop: 20,
+    marginTop: 30,
     marginBottom: 20,
   },
   sideBar: {

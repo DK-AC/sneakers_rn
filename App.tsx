@@ -17,18 +17,9 @@ export const App = () => {
         initialRouteName={'Main'}
         screenOptions={({route}) => ({
           headerStyle: {
-            backgroundColor: route.name === 'Main' ? '#e5e5e5' : 'white',
+            backgroundColor: route.name === 'Main' ? '#e5e5e5' : 'transparent',
           },
           headerTransparent: false,
-          headerSearchBarOptions:
-            route.name === 'Main'
-              ? {
-                  textColor: '#8a8a9d',
-                  barTintColor: 'white',
-                  hideNavigationBar: false,
-                  placeholder: 'Search...',
-                }
-              : undefined,
           headerLeft: () => (
             <TouchableOpacity>
               <Hamburger width={24} height={24} />
@@ -71,11 +62,5 @@ const styles = StyleSheet.create({
     fontSize: 21,
     fontFamily: 'OpenSans-Bold',
     color: '#313B5D',
-  },
-  burgerIcon: {
-    marginLeft: 10,
-  },
-  cartIcon: {
-    marginRight: 10,
   },
 });
