@@ -11,7 +11,6 @@ import {Price} from '../../components/price';
 import {IconContainer} from '../../components/icon-container';
 import {Title} from '../../components/title';
 import {Info} from '../../components/info';
-import {sneakersData} from '../../data';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Card'>;
 
