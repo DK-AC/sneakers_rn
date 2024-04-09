@@ -18,20 +18,4 @@ export const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 6,
   },
-  sideBar: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 50,
-    transform: [{rotate: '-90deg'}],
-    position: 'absolute',
-    bottom: 350,
-    left: -150,
-    zIndex: 1,
-  },
-  sidebarText: {
-    fontSize: 17,
-    fontFamily: 'OpenSans-Bold',
-    color: '#313B5D',
-    textTransform: 'uppercase',
-  },
 });
