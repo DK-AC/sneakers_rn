@@ -8,7 +8,7 @@ import AsicsLogo from '../../../assets/icons/Asics.svg';
 import {styles} from './icon-container.styles.ts';
 import {useAppDispatch} from '../../store/hooks';
 import {SneakersType} from '../../types';
-import {setItemToCart} from '../../store/slices/cart';
+import {removeItemFromCart, setItemToCart} from '../../store/slices/cart';
 import {itemExistInCart} from '../../store/selectors/cart';
 import {useSelector} from 'react-redux';
 
@@ -40,10 +40,14 @@ export const IconContainer = ({sneaker}: Props) => {
     dispatch(setItemToCart(sneaker));
   };
 
+  const handleRemoveFavoritePress = () => {
+    dispatch(removeItemFromCart(sneaker.id));
+  };
+
   return (
     <View style={styles.iconContainer}>
       {getLogo(sneaker?.firma!)}
-      <TouchableOpacity onPress={handleFavoritePress}>
+      <TouchableOpacity onPress={!selectExistIdCard ? handleFavoritePress : handleRemoveFavoritePress}>
         <FavoriteLogo width={24} height={24} fill={selectExistIdCard ? '#8A8A9D' : 'transparent'} />
       </TouchableOpacity>
     </View>
