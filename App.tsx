@@ -23,6 +23,7 @@ export const App = () => {
           headerStyle: {
             backgroundColor: route.name === 'Main' ? '#e5e5e5' : 'transparent',
           },
+          headerTitleAlign: 'center',
           headerTransparent: false,
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.navigate('Main')}>
