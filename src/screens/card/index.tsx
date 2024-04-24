@@ -44,7 +44,7 @@ export const CardScreen = (props: Props) => {
           </View>
           <Price price={price} />
         </View>
-        <ShoeSizes />
+        <ShoeSizes sneaker={params.sneaker} />
         <Info description={description} reviews={reviews} delivery={delivery} />
       </View>
     </View>

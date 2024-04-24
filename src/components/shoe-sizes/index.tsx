@@ -1,21 +1,40 @@
 import React, {useCallback, useState} from 'react';
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './shoe-sizes.styles.ts';
+import {changeFavoriteShoeSize, changeSneakerSize} from '../../store/slices/cart';
+import {useAppDispatch, useAppSelector} from '../../store/hooks';
+import {SneakersType} from '../../types';
 
-export const ShoeSizes = () => {
+type Props = {
+  sneaker: SneakersType;
+};
+
+export const ShoeSizes = ({sneaker}: Props) => {
+  const dispatch = useAppDispatch();
+  const selectSize = useAppSelector(state => state.cart.selectedSize);
+
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
+
+  const handleSizeChange = useCallback(
+    (size: number) => {
+      setSelectedSize(size);
+      dispatch(changeSneakerSize({selectedSize: size}));
+      dispatch(changeFavoriteShoeSize({id: sneaker.id, selectedSize: size}));
+    },
+    [dispatch, sneaker],
+  );
 
   const renderShoeSize = useCallback(
     (size: number) => (
       <TouchableOpacity
         key={size}
-        onPress={() => setSelectedSize(size)}
+        onPress={() => handleSizeChange(size)}
         disabled={size === selectedSize}
         style={[styles.circle, selectedSize === size ? styles.selectedCircle : null]}>
         <Text>{size}</Text>
       </TouchableOpacity>
     ),
-    [selectedSize],
+    [selectedSize, handleSizeChange],
   );
 
   const renderShoeSizes = useCallback(() => {

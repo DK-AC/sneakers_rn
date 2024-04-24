@@ -1,5 +1,4 @@
 import {ImageSourcePropType} from 'react-native';
-import {InfoSneaker} from '../constants';
 
 export type SneakersType = {
   id: string;
@@ -12,6 +11,7 @@ export type SneakersType = {
   description: string;
   reviews: ReviewsType[];
   delivery: string;
+  selectedSize?: number;
 };
 
 export type ReviewsType = {

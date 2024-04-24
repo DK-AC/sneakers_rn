@@ -9,6 +9,7 @@ import Hamburger from './assets/icons/Hamburger.svg';
 import Basket from './assets/icons/Basket.svg';
 import {useSelector} from 'react-redux';
 import {nbItemsInCart} from './src/store/selectors/cart';
+import {BasketScreen} from './src/screens/basket';
 
 export const App = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -31,7 +32,7 @@ export const App = () => {
             </TouchableOpacity>
           ),
           headerRight: () => (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Basket')}>
               <View style={styles.cartContainer}>
                 <Basket width={24} height={24} />
                 {selectNbItemsInCart > 0 && (
@@ -56,6 +57,14 @@ export const App = () => {
           component={CardScreen}
           options={{
             title: 'Running',
+            headerTitleStyle: styles.headerTitle,
+          }}
+        />
+        <Stack.Screen
+          name="Basket"
+          component={BasketScreen}
+          options={{
+            title: 'Basket',
             headerTitleStyle: styles.headerTitle,
           }}
         />

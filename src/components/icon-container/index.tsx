@@ -6,7 +6,7 @@ import AdidasLogo from '../../../assets/icons/Adidas.svg';
 import PumaLogo from '../../../assets/icons/Puma.svg';
 import AsicsLogo from '../../../assets/icons/Asics.svg';
 import {styles} from './icon-container.styles.ts';
-import {useAppDispatch} from '../../store/hooks';
+import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import {SneakersType} from '../../types';
 import {removeItemFromCart, setItemToCart} from '../../store/slices/cart';
 import {itemExistInCart} from '../../store/selectors/cart';
@@ -22,6 +22,7 @@ export const IconContainer = ({sneaker}: Props) => {
   const dispatch = useAppDispatch();
 
   const selectExistIdCard = useSelector(itemExistInCart(id));
+  const selectedSize = useAppSelector(state => state.cart.selectedSize);
 
   const getLogo = (firma: string) => {
     switch (firma) {
@@ -39,7 +40,7 @@ export const IconContainer = ({sneaker}: Props) => {
   };
 
   const handleFavoritePress = () => {
-    dispatch(setItemToCart(sneaker));
+    dispatch(setItemToCart({...sneaker, selectedSize}));
   };
 
   const handleRemoveFavoritePress = () => {

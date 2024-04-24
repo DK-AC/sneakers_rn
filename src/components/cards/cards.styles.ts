@@ -31,4 +31,15 @@ export const styles = StyleSheet.create({
     maxWidth: 280,
     objectFit: 'contain',
   },
+  sizeContainer: {
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 0,
+    left: '50%',
+  },
+  sizeNumber: {
+    color: '#313b5d',
+    fontSize: 16,
+    fontFamily: 'OpenSans-Bold',
+  },
 });
